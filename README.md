@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+# Getting Started with Galery app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Server
 
-## Available Scripts
+yarn
+node index.js
+http://localhost:5000/swagger/
 
-In the project directory, you can run:
+# Client
 
-### `npm start`
+yarn
+npm start
+http://localhost:3000/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Mongo if late to create docker file
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+brew services start mongodb/brew/mongodb-community
 
-### `npm test`
+# Architecture
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+React App -> Node Service -> Mongo DB
 
-### `npm run build`
+# UI
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Any user can upload images through Admin (not implemented auth yet)
+- Any user can vote on images ( no debounce, or limiting on number of votes yet)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Amazon S3 needs to be storing static images, but currently on the service uploads folder
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Docker
 
-### `npm run eject`
+# Mongo part
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+docker pull mongo
+docker run -d -p 27017:27017 --name mongodb mongo
+docker ps
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Node build and run in docker
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+docker build -t gallery-app-image .
+docker run -p 5000:5000 gallery-app-image
