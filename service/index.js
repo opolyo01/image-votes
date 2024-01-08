@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect("mongodb://localhost/imageDB", {
+mongoose.connect("mongodb://mongodb:27017/imageDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

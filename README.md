@@ -1,57 +1,28 @@
-# Getting Started with Galery app
-
-Service layer is in ```service directory``` <br/>
-Client is in the ```root``` <br/>
-Note there are two separate ```docker``` files for client/service
-
-# Server
+# Starting a Service
 
 ```shell
-cd service
-yarn
-node index.js
-http://localhost:5000/swagger/
+(base) opolyakov@Olegs-MacBook-Pro-2 image-votes % cd service
+(base) opolyakov@Olegs-MacBook-Pro-2 service % docker-compose up
 ```
-# Node service build and run in docker
+You can access Swagger page
+http://localhost:5000/swagger/#/default/get_images
+
+
+# Starting a Client
 
 ```shell
-docker build -t gallery-app-image .
-docker run -p 5000:5000 gallery-app-image
-```
-
-# Client
-
-```shell
-yarn
-npm start
-http://localhost:3000/
-
-or through Docker
 docker build -t my-react-app .
 docker run -p 8080:80 my-react-app
 ```
+Client is running on:
+http://localhost:8080
 
-# Mongo if late to create docker file
-
-brew services start mongodb/brew/mongodb-community
 
 # Architecture
 
 React App -> Node Service -> Mongo DB
 
-# UI
-
+# To Do Items
 - Any user can upload images through Admin (not implemented auth yet)
 - Any user can vote on images ( no debounce, or limiting on number of votes yet)
-
-Amazon S3 needs to be storing static images, but currently on the service uploads folder
-
-# Docker
-
-# Mongo part
-
-```shell
-docker pull mongo
-docker run -d -p 27017:27017 --name mongodb mongo
-docker ps
-```
+- Amazon S3 needs to be storing static images, but currently on the service uploads folder
