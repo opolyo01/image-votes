@@ -1,8 +1,13 @@
 # Getting Started with Galery app
 
+Service layer is service directory
+Client is in the root
+Note there are two separate docker files for client/service
+
 # Server
 
 ```shell
+cd service
 yarn
 node index.js
 http://localhost:5000/swagger/
@@ -14,6 +19,10 @@ http://localhost:5000/swagger/
 yarn
 npm start
 http://localhost:3000/
+
+or through Docker
+docker build -t my-react-app .
+docker run -p 8080:80 my-react-app
 ```
 
 # Mongo if late to create docker file
