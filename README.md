@@ -12,6 +12,12 @@ yarn
 node index.js
 http://localhost:5000/swagger/
 ```
+# Node service build and run in docker
+
+```shell
+docker build -t gallery-app-image .
+docker run -p 5000:5000 gallery-app-image
+```
 
 # Client
 
@@ -48,10 +54,4 @@ Amazon S3 needs to be storing static images, but currently on the service upload
 docker pull mongo
 docker run -d -p 27017:27017 --name mongodb mongo
 docker ps
-```
-# Node build and run in docker
-
-```shell
-docker build -t gallery-app-image .
-docker run -p 5000:5000 gallery-app-image
 ```
