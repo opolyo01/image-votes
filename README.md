@@ -1,7 +1,7 @@
 # Getting Started with Galery app
 
-Service layer is service directory
-Client is in the root
+Service layer is in ```service directory``` <br/>
+Client is in the ```root``
 Note there are two separate docker files for client/service
 
 # Server
