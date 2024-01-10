@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AdminUpload.css';
 
 const AdminUpload: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [filename, setFilename] = useState('');
   const [description, setDescription] = useState('');
+  const navigate = useNavigate();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -33,6 +35,8 @@ const AdminUpload: React.FC = () => {
       }
 
       console.log('Image uploaded successfully');
+
+      navigate('/');
 
     } catch (error) {
       console.error('Error uploading image:', error);
