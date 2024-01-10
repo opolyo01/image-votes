@@ -43,11 +43,11 @@ const AdminUpload: React.FC = () => {
     <div className="upload-container">
       <h1>Upload Image</h1>
       <form onSubmit={handleSubmit} className="upload-form">
-        <div>
+        <div className="form-group">
           <label htmlFor="fileInput">Choose Image:</label>
           <input type="file" id="fileInput" accept="image/*" onChange={handleFileChange} />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="filenameInput">Filename:</label>
           <input
             type="text"
@@ -56,7 +56,7 @@ const AdminUpload: React.FC = () => {
             onChange={(e) => setFilename(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="descriptionInput">Description:</label>
           <textarea
             id="descriptionInput"

@@ -1,23 +1,30 @@
-import React from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-interface TabProps extends LinkProps {
+interface TabProps {
+  to: string;
   children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+  selected?: boolean;
 }
 
-const Tab: React.FC<TabProps> = ({ children, ...rest }: TabProps) => {
+const Tab: React.FC<TabProps> = ({ children, to, className = '', onClick, selected }: TabProps) => {
+  const defaultStyles: React.CSSProperties = {
+    padding: '8px 16px',
+    margin: '0 4px',
+    textDecoration: 'none',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+    background: selected ? '#007bff' : '#f0f0f0',
+    color: selected ? 'white' : 'black',
+  };
+
   return (
     <Link
-      {...rest}
-      style={{
-        padding: '8px 16px',
-        margin: '0 4px',
-        textDecoration: 'none',
-        color: 'black',
-        border: '1px solid #ccc',
-        borderRadius: '4px',
-        background: '#f0f0f0',
-      }}
+      to={to}
+      className={`tab ${className}`}
+      onClick={onClick}
+      style={defaultStyles}
     >
       {children}
     </Link>
