@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     async function fetchImages() {
       try {
-        const response = await fetch('http://image-votes-service-1eca53db7d66.herokuapp.com/images');
+        const response = await fetch('http://localhost:5000/images');
         if (!response.ok) {
           throw new Error('Failed to fetch images');
         }
@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
       setImages(updatedImages);
 
       // Send a POST request to update thumbs-up for the image
-      await fetch(`http://image-votes-service-1eca53db7d66.herokuapp.com/images/${id}/thumbs-up`, {
+      await fetch(`http://localhost:5000/images/${id}/thumbs-up`, {
         method: 'POST',
       });
     } catch (error) {
@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
       setImages(updatedImages);
 
       // Send a POST request to update thumbs-down for the image
-      await fetch(`http://image-votes-service-1eca53db7d66.herokuapp.com/images/${id}/thumbs-down`, {
+      await fetch(`http://localhost:5000/images/${id}/thumbs-down`, {
         method: 'POST',
       });
     } catch (error) {
@@ -74,7 +74,7 @@ const HomePage: React.FC = () => {
 
   const handleDelete = async (id: string) => {
     try {
-      const response = await fetch(`http://image-votes-service-1eca53db7d66.herokuapp.com/images/${id}`, {
+      const response = await fetch(`http://localhost:5000/images/${id}`, {
         method: 'DELETE',
       });
 
@@ -101,7 +101,7 @@ const HomePage: React.FC = () => {
           {images.map((image) => (
             <div key={image.id} className="image-item">
               <img
-                src={`http://image-votes-service-1eca53db7d66.herokuapp.com/uploads/${image.filename}`}
+                src={`http://localhost:5000/uploads/${image.filename}`}
                 alt={image.description}
                 className="image-preview"
               />

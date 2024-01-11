@@ -5,7 +5,7 @@
 (base) opolyakov@Olegs-MacBook-Pro-2 service % docker-compose up
 ```
 You can access Swagger page
-http://image-votes-service-1eca53db7d66.herokuapp.com/swagger/#/default/get_images
+http://localhost:5000/swagger/#/default/get_images
 
 
 # Starting a Client
