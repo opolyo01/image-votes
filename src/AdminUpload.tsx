@@ -25,7 +25,7 @@ const AdminUpload: React.FC = () => {
       formData.append('filename', filename);
       formData.append('description', description);
 
-      const response = await fetch('http://localhost:5000/upload', {
+      const response = await fetch('http://image-votes-service-1eca53db7d66.herokuapp.com/upload', {
         method: 'POST',
         body: formData,
       });
